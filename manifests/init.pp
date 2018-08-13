@@ -47,6 +47,8 @@
 # @param prospectors_merge [Boolean] Whether $prospectors should merge all hiera sources, or use simple automatic parameter lookup
 # proxy_address [String] Proxy server to use for downloading files
 # @param xpack [Hash] Configuration items to export internal stats to a monitoring Elasticsearch cluster
+# @param http_enabled [Boolean] Enable/Disable beats metrics through an http api endpoint
+# @param http_port [Integer] Port on which the metrics endpoint listens on
 class filebeat (
   String  $package_ensure                                             = $filebeat::params::package_ensure,
   Boolean $manage_repo                                                = $filebeat::params::manage_repo,
@@ -89,8 +91,10 @@ class filebeat (
   Hash    $setup                                                      = {},
   Array   $modules                                                    = [],
   Optional[Variant[Stdlib::HTTPUrl, Stdlib::HTTPSUrl]] $proxy_address = undef, # lint:ignore:140chars
-  String $filebeat_path                                 = $filebeat::params::filebeat_path,
+  String $filebeat_path                                               = $filebeat::params::filebeat_path,
   Optional[Hash] $xpack                                               = $filebeat::params::xpack,
+  Boolean $http_enabled                                               = $filebeat::params::http_enabled,
+  Integer $http_port                                                  = $filebeat::params::http_port,
 ) inherits filebeat::params {
 
   include ::stdlib

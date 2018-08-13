@@ -29,6 +29,8 @@ class filebeat::params {
   $conf_template         = "${module_name}/pure_hash.yml.erb"
   $disable_config_test   = false
   $xpack                 = undef
+  $http_enabled          = false
+  $http_port             = 5066
 
   # These are irrelevant as long as the template is set based on the major_version parameter
   # if versioncmp('1.9.1', $::rubyversion) > 0 {
