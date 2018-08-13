@@ -29,7 +29,11 @@ class filebeat::config {
       'runoptions'        => $filebeat::run_options,
       'processors'        => $filebeat::processors,
       'setup'             => $filebeat::setup,
+      'http.enabled'      => $filebeat::http_enabled,
+      'http.port'         => $filebeat::http_port,
+      'http.host'         => $filebeat::beat_name,
     })
+
     # Add the 'xpack' section if supported (version >= 6.1.0)
     if versioncmp($filebeat::package_ensure, '6.1.0') >= 0 {
       $filebeat_config = deep_merge($filebeat_config_temp, {'xpack' => $filebeat::xpack})

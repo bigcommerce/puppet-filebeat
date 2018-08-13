@@ -35,7 +35,7 @@ group :development do
 end
 
 group :system_tests do
-  gem "beaker", *location_for(ENV['BEAKER_VERSION'] || '>= 3')
+    gem "beaker", *location_for(ENV['BEAKER_VERSION'] || '~> 3.37')
   gem "beaker-rspec", *location_for(ENV['BEAKER_RSPEC_VERSION'])
   gem 'beaker-puppet_install_helper'
   gem 'beaker-module_install_helper'
