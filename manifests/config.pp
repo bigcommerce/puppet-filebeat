@@ -31,7 +31,7 @@ class filebeat::config {
       'setup'             => $filebeat::setup,
       'http.enabled'      => $filebeat::http_enabled,
       'http.port'         => $filebeat::http_port,
-      'http.host'         => $filebeat::beat_name,
+      'http.host'         => $filebeat::http_host,
     })
 
     # Add the 'xpack' section if supported (version >= 6.1.0)

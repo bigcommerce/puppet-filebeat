@@ -94,6 +94,7 @@ class filebeat (
   String $filebeat_path                                               = $filebeat::params::filebeat_path,
   Optional[Hash] $xpack                                               = $filebeat::params::xpack,
   Boolean $http_enabled                                               = $filebeat::params::http_enabled,
+  String  $http_host                                                  = $filebeat::params::http_host,
   Integer $http_port                                                  = $filebeat::params::http_port,
 ) inherits filebeat::params {
 

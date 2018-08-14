@@ -31,6 +31,7 @@ class filebeat::params {
   $xpack                 = undef
   $http_enabled          = false
   $http_port             = 5066
+  $http_host             = '127.0.0.1'
 
   # These are irrelevant as long as the template is set based on the major_version parameter
   # if versioncmp('1.9.1', $::rubyversion) > 0 {
